@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="app-content">
+      <div class="app-header">
+        <div class="btn-header">
+          <ion-icon name="grid-outline"></ion-icon>
+        </div>
+        <div class="title-header">
+          <h4> All Tasks </h4>
+        </div>
+      </div>
+      <div class="app-body">
+        <div class="check-body">
+          <div class="allTasks">
+            <div class="check-item">
+              <label for="checkbox-1">Create new project</label>
+              <input type="checkbox" name="radio-teste" id="checkbox-1">
+            </div>
+            <div class="check-item">
+              <label for="checkbox-2">Working call</label>
+              <input type="checkbox" name="radio-teste" id="checkbox-2">
+            </div>
+            <div class="check-item">
+              <label for="checkbox-3">Meet with doctor</label>
+              <input type="checkbox" name="radio-teste" id="checkbox-3">
+            </div>
+            <div class="check-item">
+              <label for="radio-4">Meet with doctor</label>
+              <input type="checkbox" name="radio-teste" id="radio-4">
+            </div>
+          </div>
+          <div class="completedTasks">
+            <p>Completed tasks</p>
+          </div>
+        </div>
+      </div>
+      <div class="app-footer">
+        <button class="add-task">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="modalAdd" class="modal-container">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="fechar-modal">
+          <ion-icon id="fechar-modal" name="add"></ion-icon>
+        </button>
+        <h4 class="title">add a task </h4>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <input type="text" placeholder="Task name" id="todoInput">
+          <label for="descreva">Describe your task</label>
+          <textarea name="descreva" id="descreva" cols="30" rows="10"></textarea>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="addBtnModal" class="add-task btnAddModal" type="submit">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
