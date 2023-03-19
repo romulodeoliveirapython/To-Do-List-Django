@@ -1,9 +1,10 @@
 from django.urls import path
-from todo import views
+from todo.views import IndexView, TodoDetailView
 
 
 app_name = 'todo'
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name = 'index'),
+    path('', IndexView.as_view(), name = 'index'),
+    path('detail/<uuid:pk>/', TodoDetailView.as_view(), name = 'detail'),
 ]
