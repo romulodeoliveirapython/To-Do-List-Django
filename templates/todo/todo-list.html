@@ -13,7 +13,7 @@
 
     <!-- esse "todos" foi retirado do views.py -->
     {% for todo in todos %}
-    <a href="">
+    <a href="{% url 'todo:detail' pk=todo.id %}">
         <li>{{ todo.title }}</li>
     </a>
     {% endfor %}
