@@ -1,26 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import View
 from .models import ToDo
+from django.views.generic import ListView, DetailView
 
 
-"""
-class IndexView(View):
-    template_name = 'todo/index.html'
-    http_method_names = ['get']
-
-    def get(self, request):
-        return render(request, self.template_name) 
-"""
-
-class IndexView(View):
+class IndexView(ListView):
     template_name = 'todo/todo-list.html'
-    http_method_names = ['get']
     model = ToDo
+    context_object_name = 'todos'
 
-    def get(self, request):
-        # Recupera todos os objetos da model ToDo
-        todos = self.model.objects.all()
 
-        # Passa os objetos para o template usando o contexto
-        context = {'todos': todos}
-        return render(request, self.template_name, context)
+class TodoDetailView(DetailView):
+    model = ToDo
+    template_name = 'todo/todo-detail.html'
+    slug_url_kwarg = 'slug'
