@@ -12,11 +12,30 @@
     <h1>Sou uma lista</h1>
 
     <!-- esse "todos" foi retirado do views.py -->
-    {% for todo in todos %}
-    <a href="{% url 'todo:detail' pk=todo.id %}">
-        <li>{{ todo.title }}</li>
-    </a>
-    {% endfor %}
+    <div>
+        <form method="post">
+            {% for todo in todos %}
+            {% if not todo.isComplete %}
+            {% csrf_token %}
+            <ul>
+                <li>
+                    <input type="radio" id="isComplete" name="isComplete">
+                    <label for="isComplete">Completar</label>
+                </li>
+                <a href="{% url 'todo:detail' pk=todo.id %}">
+                    <li>{{ todo.title }}</li>
+                </a>
+                {% if todo.comment %}
+                <li>{{ todo.comment }}</li>
+                {% endif %}
+            </ul>
+            {% endif %}
+            {% endfor %}
+            <input type="submit" value="Atualizar">
+        </form>
+    </div>
+
+
 
 </body>
 
