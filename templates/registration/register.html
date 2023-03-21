@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Crie sua conta</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_username">Nome de usuário:</label>
+            <input type="text" id="id_username" name="username" required>
+
+            <label for="id_password1">Senha:</label>
+            <input type="password" id="id_password1" name="password1" required>
+
+            <label for="id_password2">Confirme a senha:</label>
+            <input type="password" id="id_password2" name="password2" required>
+
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+</body>
+
+</html>
