@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import View
 from todo.models import ToDo
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -22,3 +23,11 @@ class TodoDetailView(DetailView):
     model = ToDo
     template_name = 'todo/todo-detail.html'
     slug_url_kwarg = 'slug'
+
+
+@method_decorator(login_required, name='dispatch')
+class ToDoUpdate(UpdateView):
+    model: ToDo
+    queryset: ToDo.objects.all()
+    success_url = reverse_lazy('todo:list')
+    template_name = 'todo-update.html'
