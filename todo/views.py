@@ -26,7 +26,7 @@ class TodoDetailView(DetailView):
 
 
 @method_decorator(login_required, name='dispatch')
-class ToDoUpdate(UpdateView):
+class ToDoUpdateView(UpdateView):
     model: ToDo
     queryset: ToDo.objects.all()
     success_url = reverse_lazy('todo:list')
