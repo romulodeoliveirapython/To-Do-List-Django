@@ -3,25 +3,27 @@
 {% block title %}Login | {% endblock title %}
 
 {% block content %}
-<h1>Página de Login</h1>
-<form method="post">
-    {% csrf_token %}
+<div class="container-sm" style="width: 40%; margin-top: 4rem;">
+    <h1>Página de Login</h1>
+    <form method="post">
+        {% csrf_token %}
 
-    <div class="mb-3">
-        <label for="email_address" class="form-label">Username: </label>
-        <input type="text" class="form-control" id="email_address" name="username" required>
-    </div>
+        <div class="mb-3">
+            <label for="email_address" class="form-label">Username: </label>
+            <input type="text" class="form-control" id="email_address" name="username" required>
+        </div>
 
-    <div class="mb-3">
-        <label for="password" class="form-label">Senha: </label>
-        <input type="password" class="form-control" id="password" name="password" required>
-    </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha: </label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
 
 
-    <button type="submit" value="Login" class="btn btn-primary">Entrar</button>
+        <button type="submit" value="Login" class="btn btn-primary">Entrar</button>
 
-    {% for k, v in form.errors.items %}
-    {{ v }}
-    {% endfor %}
-</form>
+        {% for k, v in form.errors.items %}
+        {{ v }}
+        {% endfor %}
+    </form>
+</div>
 {% endblock content %}
