@@ -7,22 +7,21 @@
 <form method="post">
     {% csrf_token %}
 
-    <label for="email_address">Username: </label>
-    <input type="text" id="email_address" name="username" required>
+    <div class="mb-3">
+        <label for="email_address" class="form-label">Username: </label>
+        <input type="text" class="form-control" id="email_address" name="username" required>
+    </div>
 
-    <br>
-    <br>
+    <div class="mb-3">
+        <label for="password" class="form-label">Senha: </label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
 
-    <label for="password">Senha: </label>
-    <input type="password" id="password" name="password" required>
 
-    <br>
-    <br>
-
-    <input type="submit" value="Login" class="btn btn-primary">
+    <button type="submit" value="Login" class="btn btn-primary">Entrar</button>
 
     {% for k, v in form.errors.items %}
     {{ v }}
     {% endfor %}
-
-    {% endblock content %}
+</form>
+{% endblock content %}
