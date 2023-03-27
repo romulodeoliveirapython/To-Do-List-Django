@@ -1,42 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "global/global.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block title %}{{ user.username }} | {% endblock title %}
 
-<body>
-    <h1>Sou uma lista</h1>
+{% block content %}
+<h1 style="margin-top: 4rem;">Lista de Tarefas</h1>
 
-    <!-- esse "todos" foi retirado do views.py -->
-    <div>
-        <form method="post">
-            {% for todo in todos %}
-            {% if not todo.isComplete %}
-            {% csrf_token %}
-            <ul>
-                <li>
-                    <input type="radio" id="isComplete" name="isComplete">
-                    <label for="isComplete">Completar</label>
-                </li>
-                <a href="{% url 'todo:detail' pk=todo.id %}">
-                    <li>{{ todo.title }}</li>
-                </a>
-                {% if todo.comment %}
-                <li>{{ todo.comment }}</li>
-                {% endif %}
-            </ul>
-            {% endif %}
-            {% endfor %}
-            <input type="submit" value="Atualizar">
-        </form>
+{% for todo in todo %}
+{% if not todo.isComplete %}
+<div class="card" style="width: 18rem; margin-top: 1rem;">
+    <div class="card-body">
+
+        <h5 class="card-title">{{ todo.title }}</h5>
+        {% if todo.comment %}
+        <p class="card-text">{{ todo.comment }}</p>
+        {% endif %}
+        <a href="{% url 'todo:detail' pk=todo.id %}" class="card-link">Card link</a>
+
     </div>
-
-
-
-</body>
-
-</html>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock content %}
