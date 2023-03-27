@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "global/global.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block title %}Nova Tarefa | {% endblock title %}
 
-<body>
-    <h1>Sou uma view de criação</h1>
-</body>
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3 row" style="margin-top: 4rem;">
 
-</html>
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Título</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Descição</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="comment" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="col-auto">
+            <input type="submit" value="Salvar" class="btn btn-primary mb-3">
+        </div>
+    </div>
+</form>
+{% endblock content %}
