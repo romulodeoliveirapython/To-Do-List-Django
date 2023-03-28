@@ -5,13 +5,13 @@ from todo.models import Tasks
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from todo.forms import ToDoForm
+from todo.forms import TaskForm
 
 
 @method_decorator(login_required, name='dispatch')
 class TodoCreateView(CreateView):
     model = Tasks
-    form_class = ToDoForm
+    form_class = TaskForm
     template_name = 'todo/todo-create.html'
     success_url = reverse_lazy('todo:list')
 
@@ -46,7 +46,7 @@ class TodoDetailView(DetailView):
 @method_decorator(login_required, name='dispatch')
 class ToDoUpdateView(UpdateView):
     model = Tasks    
-    form_class = ToDoForm
+    form_class = TaskForm
     success_url = reverse_lazy('todo:list')
     template_name = 'todo/todo-update.html'
     context_object_name = 'todo'
