@@ -5,19 +5,20 @@
 {% block content %}
 <h1 style="margin-top: 4rem;">Lista de Tarefas</h1>
 
-{% for todo in todo %}
-{% if not todo.isComplete %}
-<div class="card" style="width: 18rem; margin-top: 1rem;">
-    <div class="card-body">
+<div class="d-flex flex-wrap" style="gap: 1rem;">
+    {% for todo in todo %}
+    {% if not todo.isComplete %}
+    <div class="card" style="width: 18rem; margin-top: 1rem;">
+        <div class="card-body">
 
-        <h5 class="card-title">{{ todo.title }}</h5>
-        {% if todo.comment %}
-        <p class="card-text">{{ todo.comment }}</p>
-        {% endif %}
-        <a href="{% url 'todo:detail' pk=todo.id %}" class="card-link">Card link</a>
-
+            <h5 class="card-title">{{ todo.title }}</h5>
+            {% if todo.comment %}
+            <p class="card-text">{{ todo.comment }}</p>
+            {% endif %}
+            <a href="{% url 'todo:detail' pk=todo.id %}" class="card-link">Card link</a>
+        </div>
     </div>
+    {% endif %}
+    {% endfor %}
+    {% endblock content %}
 </div>
-{% endif %}
-{% endfor %}
-{% endblock content %}
