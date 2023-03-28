@@ -16,6 +16,6 @@
 <p>Completo</p>
 {% endif %}
 
-<a href="" class="btn btn-outline-primary">Editar</a>
-<a href="" class="btn btn-outline-danger">Apagar</a>
+<a href="{% url 'todo:update' pk=todo.id %}" class="btn btn-outline-primary">Editar</a>
+<a href="{% url 'todo:delete' pk=todo.id %}" class="btn btn-outline-danger">Apagar</a>
 {% endblock content %}
