@@ -13,6 +13,11 @@
             <label for="id_username" class="col-sm-2 col-form-label">Nome de usuário:</label>
             <div class="col-sm-10">
                 <input type="text" id="id_username" class="form-control" name="username" required>
+                <div class="mb-3 row">
+                    {% if form.username.help_text %}
+                    <small class="form-text text-muted">{{ form.username.help_text }}</small>
+                    {% endif %}
+                </div>
             </div>
         </div>
 
@@ -20,6 +25,11 @@
             <label for="id_password1" class="col-sm-2 col-form-label">Senha:</label>
             <div class="col-sm-10">
                 <input type="password" id="id_password1" name="password1" class="form-control" aria-labelledby="passwordHelpBlock" required>
+                <div class="mb-3 row">
+                    {% if form.password1.help_text %}
+                    <small class="form-text text-muted">{{ form.password1.help_text }}</small>
+                    {% endif %}
+                </div>
             </div>
         </div>
 
@@ -27,6 +37,11 @@
             <label for="id_password2" class="col-sm-2 col-form-label">Confirme a senha:</label>
             <div class="col-sm-10">
                 <input type="password" id="id_password2" name="password2" class="form-control" aria-labelledby="passwordHelpBlock" required>
+                <div class="mb-3 row">
+                    {% if form.password2.help_text %}
+                    <small class="form-text text-muted">{{ form.password2.help_text }}</small>
+                    {% endif %}
+                </div>
             </div>
         </div>
 
