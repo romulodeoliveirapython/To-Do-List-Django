@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "global/global.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block title %}{{ todo.title }} | {% endblock title %}
 
-<body>
-    <h1>Eu sou uma página de detalhe</h1>
-</body>
 
-</html>
+{% block content %}
+<h1>{{ object.title }}</h1>
+
+{% if object.comment %}
+<p>{{ object.comment }}</p>
+{% endif %}
+
+{% if object.isComplete == False %}
+<p>Incompleto</p>
+{% else %}
+<p>Completo</p>
+{% endif %}
+
+<a href="" class="btn btn-outline-primary">Editar</a>
+<a href="" class="btn btn-outline-danger">Apagar</a>
+{% endblock content %}
