@@ -45,8 +45,8 @@ class TodoDetailView(DetailView):
 
 @method_decorator(login_required, name='dispatch')
 class ToDoUpdateView(UpdateView):
-    model: ToDo
-    queryset: ToDo.objects.all()
+    model = ToDo    
+    form_class = ToDoForm
     success_url = reverse_lazy('todo:list')
     template_name = 'todo/todo-update.html'
     context_object_name = 'todo'
