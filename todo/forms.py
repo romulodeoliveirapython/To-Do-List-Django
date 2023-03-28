@@ -1,8 +1,8 @@
 from django import forms
-from todo.models import ToDo
+from todo.models import Tasks
 
 
 class ToDoForm(forms.ModelForm):
     class Meta:
-        model = ToDo
+        model = Tasks
         exclude = ('user',)
