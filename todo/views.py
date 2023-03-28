@@ -32,7 +32,7 @@ class ToDoListView(ListView):
 
     # Lógica para que o usuário consiga ver somente os objetos relacionados ao seu user
     def get_queryset(self):
-        return ToDo.objects.filter(user = self.request.user)
+        return ToDo.objects.filter(user = self.request.user).order_by('title')
 
 
 @method_decorator(login_required, name='dispatch')
