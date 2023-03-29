@@ -1,11 +1,10 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import View
-from todo.models import Tasks, Profile
+from todo.models import Tasks
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from todo.forms import TaskForm, ProfileForm
+from todo.forms import TaskForm
 
 
 @method_decorator(login_required, name='dispatch')
@@ -49,7 +48,6 @@ class ToDoUpdateView(UpdateView):
     form_class = TaskForm
     success_url = reverse_lazy('todo:list')
     template_name = 'todo/todo-update.html'
-    context_object_name = 'todo'
 
 
 @method_decorator(login_required, name='dispatch')
@@ -57,19 +55,3 @@ class ToDoDeleteView(DeleteView):
     model = Tasks
     fields = '__all__'
     success_url = reverse_lazy('todo:list')
-    context_object_name = 'todo'
-
-
-@method_decorator(login_required, name='dispatch')
-class ProfileUpdateView(UpdateView):
-    model = Profile
-    form_class = ProfileForm
-    template_name = 'profile/profile-update.html'
-    success_url = reverse_lazy('profile')
-
-    def get_object(self, queryset=None):
-        return self.request.user
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        return response
