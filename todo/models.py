@@ -12,8 +12,3 @@ class Tasks(models.Model):
 
     def __str__(self):
         return self.title
-
-
-# https://ohmycode.com.br/perfil-para-o-usuario-com-o-model-one-to-one-no-django/
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
