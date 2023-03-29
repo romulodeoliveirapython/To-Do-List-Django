@@ -9,7 +9,7 @@ python3 -m venv .venv
 # Cria um arquivo chamado "meuarquivo.txt" na pasta do projeto
 touch mysite/testing.py
 
-# Adiciona o conteúdo "Este é o conteúdo do meu arquivo" ao arquivo
+# Adiciona o conteúdoentre aspas ao arquivo testing.py
 echo "import os
 
 secretkey = 'django-insecure-mwn_yn^f))myqf-9v(r=7dz1+v0nm4*g@9@b!(#kpo&@ww#41a'
