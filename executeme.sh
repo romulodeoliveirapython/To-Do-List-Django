@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 
+# Instala o ambiente virtual
 sudo apt install python3.8-venv
 
 # Cria um ambiente virtual para o projeto
@@ -10,17 +10,17 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Instala as dependências do projeto
-pip install django
+.venv/bin/pip install django
 
 # Executa as migrações do banco de dados
-python manage.py migrate
-python manage.py makemigrations
+.venv/bin/python manage.py migrate
+.venv/bin/python manage.py makemigrations
 
 # Exibe uma mensagem em vermelho
 echo -e "\033[31mAGORA CRIE SEU USUÁRIO E SENHA\033[0m"
 
 # Cria um superusuário para o Django
-python manage.py createsuperuser
+.venv/bin/python manage.py createsuperuser
 
 # Cria um arquivo chamado "meuarquivo.txt" na pasta do projeto
 touch mysite/testing.py
@@ -38,4 +38,4 @@ database = {
 }" > mysite/testing.py
 
 # Executa o servidor web do Django e abre o navegador no link 127.0.0.1:8000/
-python manage.py runserver & xdg-open http://127.0.0.1:8000/
+.venv/bin/python manage.py runserver & xdg-open http://127.0.0.1:8000/
