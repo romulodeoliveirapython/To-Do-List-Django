@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# 
+sudo apt install python3.8-venv
 
 # Cria um ambiente virtual para o projeto
 python3 -m venv .venv
@@ -8,11 +10,11 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # Instala as dependências do projeto
-python -m pip install -r requirements.txt
+pip install django
 
 # Executa as migrações do banco de dados
-python manage.py makemigrations
 python manage.py migrate
+python manage.py makemigrations
 
 # Exibe uma mensagem em vermelho
 echo -e "\033[31mAGORA CRIE SEU USUÁRIO E SENHA\033[0m"
@@ -24,12 +26,14 @@ python manage.py createsuperuser
 touch mysite/testing.py
 
 # Adiciona o conteúdo "Este é o conteúdo do meu arquivo" ao arquivo
-echo "secretkey = 'django-insecure-mwn_yn^f))myqf-9v(r=7dz1+v0nm4*g@9@b!(#kpo&@ww#41a'
+echo "import os
+
+secretkey = 'django-insecure-mwn_yn^f))myqf-9v(r=7dz1+v0nm4*g@9@b!(#kpo&@ww#41a'
 
 database = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'db.sqlite3'),
     }
 }" > mysite/testing.py
 
