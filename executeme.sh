@@ -16,12 +16,6 @@ source .venv/bin/activate
 .venv/bin/python manage.py migrate
 .venv/bin/python manage.py makemigrations
 
-# Exibe uma mensagem em vermelho
-echo -e "\033[31mAGORA CRIE SEU USUÁRIO E SENHA\033[0m"
-
-# Cria um superusuário para o Django
-.venv/bin/python manage.py createsuperuser
-
 # Cria um arquivo chamado "meuarquivo.txt" na pasta do projeto
 touch mysite/testing.py
 
@@ -36,6 +30,9 @@ database = {
         'NAME': os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'db.sqlite3'),
     }
 }" > mysite/testing.py
+
+# Tempo
+sleep 10
 
 # Executa o servidor web do Django e abre o navegador no link 127.0.0.1:8000/
 .venv/bin/python manage.py runserver & xdg-open http://127.0.0.1:8000/
