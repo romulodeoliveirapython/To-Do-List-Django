@@ -7,14 +7,16 @@ sudo apt install python3.8-venv
 python3 -m venv .venv
 
 # Ativa o ambiente virtual
-source .venv/bin/activate
+. .venv/bin/activate
 
 # Instala as dependências do projeto
 .venv/bin/pip install django
 
 # Executa as migrações do banco de dados
 .venv/bin/python manage.py migrate
+sleep 2
 .venv/bin/python manage.py makemigrations
+sleep 2
 
 # Cria um arquivo chamado "meuarquivo.txt" na pasta do projeto
 touch mysite/testing.py
@@ -32,7 +34,7 @@ database = {
 }" > mysite/testing.py
 
 # Tempo
-sleep 10
+sleep 20
 
 # Executa o servidor web do Django e abre o navegador no link 127.0.0.1:8000/
 .venv/bin/python manage.py runserver & xdg-open http://127.0.0.1:8000/
